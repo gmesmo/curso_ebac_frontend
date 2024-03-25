@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+#task-list {
+  padding-top: 8px;
+  height: 50dvh;
+  width: 60dvh;
+  margin: 10% auto;
+
+  background-color: #d3d3d3;
+
+  overflow-y: scroll;
+}
+
+h1 {
+  text-align: center;
+  margin: 24px 0px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+input,
+button {
+  font-size: 16px;
+  padding: 8px;
+}
+
+button {
+  margin-left: 16px;
+}
+
+ul {
+  margin-top: 16px;
+}
+
+ul li {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+
+.tarefa {
+  cursor: pointer;
+}
+
+.tarefa.feita {
+  text-decoration: line-through;
+}
