@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio Plugins jQuery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <section id="form">
+      <h1>Formulário de Cadastro</h1>
+      <form>
+        <input
+          name="nomeCompleto"
+          id="nomeCompleto"
+          placeholder="Nome Completo"
+        />
+        <input name="emailContato" id="emailContato" placeholder="Seu email" />
+        <input name="foneContato" id="foneContato" />
+        <input name="CPF" id="CPF" />
+        <input
+          name="enderecoCompleto"
+          id="enderecoCompleto"
+          placeholder="Seu endereço completo"
+        />
+        <input name="CEP" id="CEP" />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./plugins/jquery.mask.min.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
