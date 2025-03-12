@@ -1,73 +1,23 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   document
-//     .getElementById("btn-buscar-cep")
-//     .addEventListener("click", function () {
-//       const xhttp = new XMLHttpRequest();
-//       const cep = document.getElementById("cep").value;
-//       const url = `https://viacep.com.br/ws/${cep}/json/`;
+document.addEventListener("DOMContentLoaded", () => {
+  const nome = document.querySelector("#nome");
+  const username = document.querySelector("#username");
+  const avatar = document.querySelector("#avatar");
+  const repos = document.querySelector("#repos");
+  const followers = document.querySelector("#followers");
+  const following = document.querySelector("#following");
+  const link = document.querySelector("#profile-link");
 
-//       xhttp.open("GET", url);
-//       xhttp.send();
-//     });
-// });
-
-$(document).ready(function () {
-  $("#cep").mask("00000-000");
-
-  $("#btn-buscar-cep").click(function () {
-    const cep = $("#cep").val();
-    const url = `https://viacep.com.br/ws/${cep}/json`;
-    const botao = $(this);
-
-    $(botao).find("i").addClass("d-none");
-    $(botao).find("span").removeClass("d-none");
-
-    fetch(url)
-      .then(function (resposta) {
-        return resposta.json();
-      })
-      .then(function (json) {
-        const logradouro = json.logradouro;
-        const bairro = json.bairro;
-        const cidade = json.localidade;
-        const estado = json.uf;
-        const endereco = `${logradouro}, ${bairro}, ${cidade} - ${estado}`;
-
-        $("#endereco").val(endereco);
-      })
-      .catch(function (erro) {
-        alert(
-          "Ocorreu um erro ao buscar o endereço, tente novamente mais tarde"
-        );
-      })
-      .finally(function () {
-        setTimeout(function () {
-          $(botao).find("i").removeClass("d-none");
-          $(botao).find("span").addClass("d-none");
-        }, 1000);
-      });
-
-    // $.ajax(url).done(function (resposta) {
-    //   const logradouro = resposta.logradouro;
-    //   const bairro = resposta.bairro;
-    //   const cidade = resposta.localidade;
-    //   const estado = resposta.uf;
-    //   const endereco = `${logradouro}, ${bairro}, ${cidade} - ${estado}`;
-
-    //   $("#endereco").val(endereco);
-
-    //   setTimeout(function () {
-    //     $(botao).find("i").removeClass("d-none");
-    //     $(botao).find("span").addClass("d-none");
-    //   }, 1000);
-    // });
-  });
-
-  $("#formulario-pedido").submit(function (e) {
-    e.preventDefault();
-
-    if ($("#nome").val().length == 0) {
-      throw new Error("Digite o nome");
-    }
-  });
+  fetch("https://api.github.com/users/gmesmo")
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (json) {
+      nome.innerText = json.name;
+      username.innerText = json.login;
+      avatar.src = json.avatar_url;
+      repos.innerText = json.public_repos;
+      followers.innerText = json.followers;
+      following.innerText = json.following;
+      link.href = json.html_url;
+    });
 });
