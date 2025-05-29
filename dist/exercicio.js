@@ -29,11 +29,16 @@ var Aluno = /*#__PURE__*/function () {
     value: function aprovado() {
       if (_classPrivateFieldGet(_nota, this) >= 6) {
         return true;
+      } else {
+        return false;
       }
     }
   }]);
 }();
-var guilherme = new Aluno("Guilherme", 10);
-var mariane = new Aluno("Mariane", 3.5);
-var roger = new Aluno("roger", 6);
-var aprovados = [];
+var alunos = [new Aluno("Guilherme", 10), new Aluno("Mariane", 3.5), new Aluno("Roger", 7), new Aluno("Wagner", 6)];
+console.log(alunos);
+alunos.forEach(function (aluno) {
+  if (aluno.aprovado()) {
+    console.log("".concat(aluno.nome, " foi aprovado!"));
+  }
+});

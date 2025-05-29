@@ -13,12 +13,23 @@ class Aluno {
   aprovado() {
     if (this.#nota >= 6) {
       return true;
+    } else {
+      return false;
     }
   }
 }
 
-const guilherme = new Aluno("Guilherme", 10);
-const mariane = new Aluno("Mariane", 3.5);
-const roger = new Aluno("roger", 6);
+const alunos = [
+  new Aluno("Guilherme", 10),
+  new Aluno("Mariane", 3.5),
+  new Aluno("Roger", 7),
+  new Aluno("Wagner", 6),
+];
 
-let aprovados = [];
+console.log(alunos);
+
+alunos.forEach((aluno) => {
+  if (aluno.aprovado()) {
+    console.log(`${aluno.nome} foi aprovado!`);
+  }
+});
